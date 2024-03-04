@@ -11,7 +11,6 @@ hashurile segmentelor cunoscute) si fisierele dorite intr-un vector de saved_fil
 nr-ul lor in structura wanted).
 	De asemenea, folosind MPI-ul se trimite intai tipul de mesaj (REQUEST, UPDATE, END_DOWNLOAD, 
 END_ALL_DOWNLOADS) prin care se specifica tipul de operatie realizat de tracker.
-```
 
 ## Tagurile folosite in MPI_Recv si MPI_Send sunt:
 
