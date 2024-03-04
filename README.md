@@ -2,7 +2,7 @@
 
 ## Variabile folosite:
 
-& Lista de fisiere mentinuta de tracker este reprezentata de un vector de structuri files_list (
+* Lista de fisiere mentinuta de tracker este reprezentata de un vector de structuri files_list (
 vector de saved_file + nr-ul de fisiere)
 * saved_file reprezinta informatiile detinute despre un fisier de tracker: nume + swarm(alcatuit din rang-ul clientului, nr-ul de segmente si hashurile 
 segmentelor detinute de client) + nr_clienti.
@@ -57,4 +57,3 @@ trimite acelui seed/peer o cerere pentru segment, asteapta sa primeasca de la se
 cerut si marcheaza segmentul ca primit. Acest lucru se face pentru fiecare segment dorit. 
 Actualizarea continua a swarm-urilor fisierelor in tracker face ca descarcarea fisierelor sa se 
 faca intr-un mod eficient, prin faptul ca se cer segmente de la mai multi clienti.
-```
