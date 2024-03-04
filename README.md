@@ -1,4 +1,6 @@
-	Variabile folosite:
+# Protocolul BitTorrent
+
+## Variabile folosite:
 	Lista de fisiere mentinuta de tracker este reprezentata de un vector de structuri files_list (
 vector de saved_file + nr-ul de fisiere), saved_file reprezinta informatiile detinute despre un 
 fisier de tracker: nume + swarm(alcatuit din rang-ul clientului, nr-ul de segmente si hashurile 
@@ -9,7 +11,8 @@ nr-ul lor in structura wanted).
 	De asemenea, folosind MPI-ul se trimite intai tipul de mesaj (REQUEST, UPDATE, END_DOWNLOAD, 
 END_ALL_DOWNLOADS) prin care se specifica tipul de operatie realizat de tracker.
 
-	Tagurile folosite in MPI_Recv si MPI_Send sunt: 
+## Tagurile folosite in MPI_Recv si MPI_Send sunt:
+```
 -> INIT_TAG: partea de initializare, comunicarea intre client si tracker
 -> DOWNLOAD_1_TAG: partea de download, comunicarea intre client si tracker, aici se specifica si 
 tipul de operatie realizat de tracker, in functie de ce trimite clientul: REQUEST, UPDATE
@@ -17,8 +20,9 @@ tipul de operatie realizat de tracker, in functie de ce trimite clientul: REQUES
 -> UPLOAD_TAG: partea de download, comunicarea intre client si client, raspunsul la cerere
 -> UPDATE_TAG: partea de actualizare, comunicarea intre client si tracker
 -> END_TAG: partea de finalizare, cu tipul de mesaje: END_DOWNLOAD, END_ALL_DOWNLOADS
-	
-	Functii:
+```
+## Functii:
+```
 -> init_peer: apelata la inceputul functiei peer, citeste fisierul de intrare, salveaza fisierele 
 in client_saved_file si ii transmite tracker-ului ce fisiere are si segmentele lor si asteapta 
 ACK-ul
@@ -42,8 +46,8 @@ descarcat
 -> find_clients_with_segment: apelata de peer_download: construieste un vector cu rangurile 
 clientilor care detin un anumit segment, (lista de seeds/peers care au segmentul).
 -> alte functii care realizeaza partea de gasire/stergere fisiere, segmente, clienti, etc.
-
-	Partea de eficienta:
+```
+## Partea de eficienta:
 	Se foloseste randomizarea, atunci cand se doreste un segment, clientul cauta cu 
 find_clients_with_segment lista de seeds/peers care au segmentul, apoi ia aleatoriu un client, ii 
 trimite acelui seed/peer o cerere pentru segment, asteapta sa primeasca de la seed/peer segmentul 
