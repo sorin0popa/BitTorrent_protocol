@@ -2,7 +2,6 @@
 
 ## Variabile folosite:
 
-```
 	Lista de fisiere mentinuta de tracker este reprezentata de un vector de structuri files_list (
 vector de saved_file + nr-ul de fisiere), saved_file reprezinta informatiile detinute despre un 
 fisier de tracker: nume + swarm(alcatuit din rang-ul clientului, nr-ul de segmente si hashurile 
@@ -15,15 +14,16 @@ END_ALL_DOWNLOADS) prin care se specifica tipul de operatie realizat de tracker.
 ```
 
 ## Tagurile folosite in MPI_Recv si MPI_Send sunt:
-```
--> INIT_TAG: partea de initializare, comunicarea intre client si tracker
--> DOWNLOAD_1_TAG: partea de download, comunicarea intre client si tracker, aici se specifica si 
+
+* INIT_TAG: partea de initializare, comunicarea intre client si tracker
+* DOWNLOAD_1_TAG: partea de download, comunicarea intre client si tracker, aici se specifica si 
 tipul de operatie realizat de tracker, in functie de ce trimite clientul: REQUEST, UPDATE
--> DOWNLOAD_2_TAG: partea de download, comunicarea intre client si client, cererea 
--> UPLOAD_TAG: partea de download, comunicarea intre client si client, raspunsul la cerere
--> UPDATE_TAG: partea de actualizare, comunicarea intre client si tracker
--> END_TAG: partea de finalizare, cu tipul de mesaje: END_DOWNLOAD, END_ALL_DOWNLOADS
-```
+* DOWNLOAD_2_TAG: partea de download, comunicarea intre client si client, cererea 
+* UPLOAD_TAG: partea de download, comunicarea intre client si client, raspunsul la cerere
+* UPDATE_TAG: partea de actualizare, comunicarea intre client si tracker
+* END_TAG: partea de finalizare, cu tipul de mesaje: END_DOWNLOAD, END_ALL_DOWNLOADS
+
+
 ## Functii:
 ```
 -> init_peer: apelata la inceputul functiei peer, citeste fisierul de intrare, salveaza fisierele 
