@@ -1,6 +1,8 @@
 # Protocolul BitTorrent
 
 ## Variabile folosite:
+
+```
 	Lista de fisiere mentinuta de tracker este reprezentata de un vector de structuri files_list (
 vector de saved_file + nr-ul de fisiere), saved_file reprezinta informatiile detinute despre un 
 fisier de tracker: nume + swarm(alcatuit din rang-ul clientului, nr-ul de segmente si hashurile 
@@ -10,6 +12,7 @@ hashurile segmentelor cunoscute) si fisierele dorite intr-un vector de saved_fil
 nr-ul lor in structura wanted).
 	De asemenea, folosind MPI-ul se trimite intai tipul de mesaj (REQUEST, UPDATE, END_DOWNLOAD, 
 END_ALL_DOWNLOADS) prin care se specifica tipul de operatie realizat de tracker.
+```
 
 ## Tagurile folosite in MPI_Recv si MPI_Send sunt:
 ```
@@ -48,9 +51,11 @@ clientilor care detin un anumit segment, (lista de seeds/peers care au segmentul
 -> alte functii care realizeaza partea de gasire/stergere fisiere, segmente, clienti, etc.
 ```
 ## Partea de eficienta:
+```
 	Se foloseste randomizarea, atunci cand se doreste un segment, clientul cauta cu 
 find_clients_with_segment lista de seeds/peers care au segmentul, apoi ia aleatoriu un client, ii 
 trimite acelui seed/peer o cerere pentru segment, asteapta sa primeasca de la seed/peer segmentul 
 cerut si marcheaza segmentul ca primit. Acest lucru se face pentru fiecare segment dorit. 
 Actualizarea continua a swarm-urilor fisierelor in tracker face ca descarcarea fisierelor sa se 
-faca intr-un mod eficient, prin faptul ca se cer segmente de la mai multi clienti. 
+faca intr-un mod eficient, prin faptul ca se cer segmente de la mai multi clienti.
+```
