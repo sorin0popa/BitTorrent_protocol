@@ -12,7 +12,7 @@ nr-ul lor in structura wanted).
 * De asemenea, folosind MPI-ul se trimite intai tipul de mesaj (REQUEST, UPDATE, END_DOWNLOAD, 
 END_ALL_DOWNLOADS) prin care se specifica tipul de operatie realizat de tracker.
 
-## Tagurile folosite in MPI_Recv si MPI_Send sunt:
+## Tagurile folosite in MPI_Recv si MPI_Send:
 
 * INIT_TAG: partea de initializare, comunicarea intre client si tracker
 * DOWNLOAD_1_TAG: partea de download, comunicarea intre client si tracker, aici se specifica si 
